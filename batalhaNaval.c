@@ -1,31 +1,38 @@
-#include <stdio.h>
-int main() {
-     // 1. Definição do Tabuleiro
-    // Criamos uma matriz de inteiros 10x10. 
-    // O primeiro [10] são as linhas, o segundo [10] as colunas.
-    // Inicializamos com {0} para que todas as casas sejam "água".
-    int tabuleiro[10][10] = {0};
-        // 2. Definição do Tamanho dos Navios
-    int tamanho_navio = 3;
-     // 3. Posicionamento do Navio Horizontal
-    // Vamos escolher uma linha (ex: linha 2) e ocupar 3 colunas seguidas (ex: 3, 4 e 5).
-   int linha-horizontal = 2;
-    int coluna-vertical = 3;
-    for (int i = 0; i < tamanho-navi; i++) {
-       tabuleiro[linha_horizontal][coluna_horizontalInicial + i] = 3
-    }
-   // 4. Posicionamento do Navio Vertical
-    // Vamos escolher uma coluna (ex: coluna 7) e ocupar 3 linhas seguidas (ex: 5, 6 e 7).
-    int linha-vertical = 5;
-    int coluna-horizontal = 7;
-    for (int i = 0; i < tamanho-navio; i++) {
-        tabuleiro[linha-vertical + i][coluna-verical = 3;]
-         // 5. Exibição do Tabuleiro
-    // Usamos dois loops (um dentro do outro) para percorrer as "linhas" e as "colunas".
-        for (int i = o; i < 10; i++) { //esse loop comtrola as LINHAS
-            for (int j + 0 j < 10; j++) { //esse loop controla as COLUNAS de cada linha
-                printf("%d ", tabuleiro[i][j]); //imprime o valor(0 ou 3) seguido de um espaço
-            }
-            printf("\n"); //quando termina uma linha, ele pula para a proxima linha de baixo
-    return 0;
+#include <stdio.h> // bibliotecas
+#define TAM 10 // constantes
+// funções (opcionais) auxiliares
+int main(){
+int tabuleiro[TAM][TAM];
+// mostrar tabuleiro
+for (int i = 0; i < TAM; i++) {
+for (int j = 0; j < TAM; j++) {
+     tabuleiro[i][j] = 0;
+}
+}
+// posicionamentos dos navios.
+//navio horizontal
+    tabuleiro[2][1] = 3;
+    tabuleiro[2][2] = 3;
+    tabuleiro[2][3] = 3;
+//navil vertical
+    tabuleiro[5][5] = 3;
+    tabuleiro[6][5] = 3;
+    tabuleiro[7][5] = 3;
+// navil da diagonal (descendo)
+    tabuleiro[0][0] = 3;
+    tabuleiro[1][1] = 3;
+    tabuleiro[2][2] = 3;
+// navil da diagonal (invertida)
+    tabuleiro[0][9] = 3;
+    tabuleiro[1][8] = 3;
+    tabuleiro[2][7] = 3;
+    //tabuleiro completo (exibindo/exibir)
+    printf("--- TABULEIRO BATALHA NAVAL ---\n"); //loop que percorre as LINHAS
+    for (int i = 0; i <TAM; i++) { // este percorre as COLUNAS de cada linha
+        for (int j = 0; j < TAM; j++) {
+            printf("%d ", tabuleiro[i][j]); 
         }
+        printf("\n"); // pula cada linha pós a outra de baixo
+    }
+    return 0;
+} //final do programa (fechar).

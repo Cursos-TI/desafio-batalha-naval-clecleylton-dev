@@ -1,38 +1,37 @@
-#include <stdio.h> // bibliotecas
-#define TAM 10 // constantes
-// funções (opcionais) auxiliares
-int main(){
-int tabuleiro[TAM][TAM];
-// mostrar tabuleiro
-for (int i = 0; i < TAM; i++) {
-for (int j = 0; j < TAM; j++) {
-     tabuleiro[i][j] = 0;
-}
-}
-// posicionamentos dos navios.
-//navio horizontal
-    tabuleiro[2][1] = 3;
-    tabuleiro[2][2] = 3;
-    tabuleiro[2][3] = 3;
-//navil vertical
-    tabuleiro[5][5] = 3;
-    tabuleiro[6][5] = 3;
-    tabuleiro[7][5] = 3;
-// navil da diagonal (descendo)
-    tabuleiro[0][0] = 3;
-    tabuleiro[1][1] = 3;
-    tabuleiro[2][2] = 3;
-// navil da diagonal (invertida)
-    tabuleiro[0][9] = 3;
-    tabuleiro[1][8] = 3;
-    tabuleiro[2][7] = 3;
-    //tabuleiro completo (exibindo/exibir)
-    printf("--- TABULEIRO BATALHA NAVAL ---\n"); //loop que percorre as LINHAS
-    for (int i = 0; i <TAM; i++) { // este percorre as COLUNAS de cada linha
+#include <stdio.h>
+
+#define TAM 10
+
+int main() {
+    int tabuleiro[TAM][TAM];
+
+    // 1. Zerar o tabuleiro
+    for (int i = 0; i < TAM; i++) {
         for (int j = 0; j < TAM; j++) {
-            printf("%d ", tabuleiro[i][j]); 
+            tabuleiro[i][j] = 0;
         }
-        printf("\n"); // pula cada linha pós a outra de baixo
     }
+
+    // 2. Posicionamento dos Navios (Mantendo suas coordenadas do nível aventureiro)
+    tabuleiro[4][1] = 3; tabuleiro[4][2] = 3; tabuleiro[4][3] = 3; // Horizontal
+    tabuleiro[5][8] = 3; tabuleiro[6][8] = 3; tabuleiro[7][8] = 3; // Vertical
+    tabuleiro[0][0] = 3; tabuleiro[1][1] = 3; tabuleiro[2][2] = 3; // Diagonal 1
+    tabuleiro[0][9] = 3; tabuleiro[1][8] = 3; tabuleiro[2][7] = 3; // Diagonal 2
+
+    // 3. EXIBIÇÃO COM COORDENADAS COMPLETAS
+    printf("     A B C D E F G H I J\n"); // Letras no topo (Horizontal)
+
+    for (int i = 0; i < TAM; i++) {
+        // AQUI ESTÁ A MARCAÇÃO VERTICAL:
+        // O "%d" imprime o número da linha (0, 1, 2...). 
+        // Os espaços depois dele alinham o tabuleiro com as letras lá de cima.
+        printf("%d    ", i); 
+
+        for (int j = 0; j < TAM; j++) {
+            printf("%d ", tabuleiro[i][j]);
+        }
+        printf("\n"); // Pula para a próxima linha
+    }
+
     return 0;
-} //final do programa (fechar).
+}
